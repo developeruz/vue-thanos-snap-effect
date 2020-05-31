@@ -1,0 +1,29 @@
+{
+  "name": "vue-thanos-snap-effect",
+  "version": "1.0.0",
+  "description": "ThanosSnapEffect component for Vue.js",
+  "main": "ThanosSnapEffect.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developeruz/vue-thanos-snap-effect.git"
+  },
+  "keywords": [
+    "vue.js",
+    "thanos",
+    "snap",
+    "effect"
+  ],
+  "author": "Elvira Sheina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/developeruz/vue-thanos-snap-effect/issues"
+  },
+  "homepage": "https://github.com/developeruz/vue-thanos-snap-effect#readme",
+  "dependencies": {
+    "chance": "^1.1.6",
+    "html2canvas": "^1.0.0-rc.5"
+  }
+}
