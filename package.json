@@ -1,10 +1,11 @@
 {
   "name": "vue-thanos-snap-effect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ThanosSnapEffect component for Vue.js",
-  "main": "ThanosSnapEffect.vue",
+  "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,23 @@
   },
   "homepage": "https://github.com/developeruz/vue-thanos-snap-effect#readme",
   "dependencies": {
+    "@vue/cli": "^4.4.1",
     "chance": "^1.1.6",
     "html2canvas": "^1.0.0-rc.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }
