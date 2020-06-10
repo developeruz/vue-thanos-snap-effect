@@ -1,6 +1,6 @@
 {
   "name": "vue-thanos-snap-effect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ThanosSnapEffect component for Vue.js",
   "main": "src/main.js",
   "scripts": {

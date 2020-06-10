@@ -35,6 +35,14 @@
       dustTransition: {
         type: String,
         default: "dust"
+      },
+      pageReady: {
+        type: Boolean,
+        default: false
+      },
+      debug: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -42,21 +50,27 @@
         showMain: true,
         hiddenFrames: 0,
         framesLength: 32,
-        showDust: false,
+        showDust: false
       }
     },
     watch: {
       startAnimation(newValue) {
         if (newValue) {
-            this.showDust = true;
-            // hiding to trigger transition
-            this.showMain = false;
-            let interval = setInterval(() => {
-              this.hiddenFrames++;
-              if (this.hiddenFrames >= this.framesLength) {
-                clearInterval(interval);
-              }
-            }, 100);
+          this.showDust = true;
+          // hiding to trigger transition
+          this.showMain = false;
+          let interval = setInterval(() => {
+            this.hiddenFrames++;
+            if (this.hiddenFrames >= this.framesLength) {
+              clearInterval(interval);
+            }
+          }, 100);
+        }
+      },
+      pageReady(newValue) {
+        if (newValue) {
+          const doc = this.$refs['main'];
+          this.drawCanvas(doc);
         }
       }
     },
@@ -92,7 +106,11 @@
             useCORS: true,
             backgroundColor: null,
           });
-          this.generateFrames(canvas);
+          if(this.debug) {
+            window.location.href = canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+          } else {
+            this.generateFrames(canvas);
+          }
           this.$emit("ready");
         } catch (error) {
           this.$emit("error", error.message);
@@ -100,11 +118,9 @@
       },
     },
     mounted() {
-      document.onreadystatechange = () => {
-        if (document.readyState === "complete") {
-          const doc = this.$refs['main'];
-          this.drawCanvas(doc);
-        }
+      if (this.pageReady) {
+        const doc = this.$refs['main'];
+        this.drawCanvas(doc);
       }
     }
   }
